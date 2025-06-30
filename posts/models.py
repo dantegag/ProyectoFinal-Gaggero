@@ -19,7 +19,7 @@ class Pelicula(models.Model):
     titulo = models.CharField(max_length=200)
     director = models.ForeignKey(Director, on_delete=models.CASCADE)
     genero = models.ForeignKey(Genero, on_delete=models.SET_NULL, null=True)
-    anio = models.PositiveIntegerField()
+    año = models.PositiveIntegerField()
 
     def __str__(self):
         return self.titulo
