@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.shortcuts import render, redirect
 from .models import Pelicula, Director, Genero
 from .forms import PeliculaForm, DirectorForm, GeneroForm, BusquedaForm
@@ -5,14 +6,24 @@ from .forms import PeliculaForm, DirectorForm, GeneroForm, BusquedaForm
 # Create your views here.
 
 def inicio(request):
-    form = BusquedaForm()
-    peliculas = None
+    form = BusquedaForm(request.GET or None)
+    peliculas = []
+    termino = ""
+    if form.is_valid():
+      termino = form.cleaned_data.get("termino")
+      if termino:  
+        peliculas = Pelicula.objects.filter(
+            Q(titulo__icontains=termino) |
+            Q(director__nombre__icontains=termino)
+        )
 
-    if request.GET.get("titulo"):
-        peliculas = Pelicula.objects.filter(titulo__icontains=request.GET["titulo"])
+      
 
-    return render(request, "posts/inicio.html", {"form": form, "peliculas": peliculas})
-
+    return render(request, "posts/inicio.html", {
+        "form": form,
+        "peliculas": peliculas,
+        "termino": termino
+    })
 def peliculas(request):
     if request.method == "POST":
         form = PeliculaForm(request.POST)

@@ -17,5 +17,5 @@ class GeneroForm(forms.ModelForm):
         fields = '__all__'
 
 class BusquedaForm(forms.Form):
-    titulo = forms.CharField(label='Buscar por título', max_length=100, required=False)
+    termino = forms.CharField(label='Buscar por título o director', max_length=100, required=False)
 

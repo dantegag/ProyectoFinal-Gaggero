@@ -12,8 +12,14 @@
     <h2>Resultados:</h2>
     <ul>
         {% for peli in peliculas %}
-            <li>{{ peli.titulo }} ({{ peli.año }}) - {{ peli.director }}</li>
+            <li>
+                {{ peli.titulo }} - {{ peli.director.nombre }} ({{ peli.año }}) - 
+                Dirigida por {{ peli.director.nombre }} ({{ peli.director.nacionalidad }})
+            </li>
         {% endfor %}
     </ul>
+{% elif termino %}
+    <p>No se encontraron resultados.</p>
 {% endif %}
+
 {% endblock %}
