@@ -1,18 +1,135 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Películas</title>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Películas{% endblock %}</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            /* Fondo con la imagen que subiste */
+            background: url('/static/img/camera_bg.png') no-repeat center center fixed;
+            background-size: contain;
+            background-position: center bottom;
+            background-color: #000;
+            color: #fff;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Contenedor con fondo oscuro semitransparente para legibilidad */
+        .contenido {
+            background-color: rgba(0, 0, 0, 0.75);
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 900px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px #000;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Barra de navegación */
+        nav {
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 12px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 2px 8px #000;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 18px;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #fff;
+            color: #222;
+            box-shadow: 0 0 8px #fff;
+        }
+
+        hr {
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2 {
+            text-align: center;
+            text-shadow: 1px 1px 5px #000;
+        }
+
+        form {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        button {
+            background-color: #ffcc00;
+            border: none;
+            padding: 8px 18px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #e6b800;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            padding: 6px 10px;
+            border-bottom: 1px solid #444;
+        }
+
+        /* Marca de agua abajo derecha */
+        .watermark {
+            position: fixed;
+            bottom: 10px;
+            right: 15px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.3);
+            font-weight: bold;
+            z-index: 20;
+            user-select: none;
+            pointer-events: none;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+    {% block extrahead %}{% endblock %}
 </head>
 <body>
     <nav>
-        <a href="{% url 'inicio' %}">Inicio</a> |
-        <a href="{% url 'peliculas' %}">Películas</a> |
-        <a href="{% url 'directores' %}">Directores</a> |
+        <a href="{% url 'inicio' %}">Inicio</a>
+        <a href="{% url 'peliculas' %}">Películas</a>
+        <a href="{% url 'directores' %}">Directores</a>
         <a href="{% url 'generos' %}">Géneros</a>
     </nav>
     <hr>
-    {% block contenido %}
-    {% endblock %}
+    <div class="contenido">
+        {% block contenido %}
+        {% endblock %}
+    </div>
+
+    <div class="watermark">Dante Gaggero</div>
 </body>
 </html>
+
+
