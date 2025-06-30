@@ -1,0 +1,19 @@
+{% extends "posts/base.html" %}
+
+{% block contenido %}
+<h1>Bienvenido a la web de Películas</h1>
+
+<form method="get">
+    {{ form.as_p }}
+    <button type="submit">Buscar</button>
+</form>
+
+{% if peliculas %}
+    <h2>Resultados:</h2>
+    <ul>
+        {% for peli in peliculas %}
+            <li>{{ peli.titulo }} ({{ peli.anio }}) - {{ peli.director }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "posts/base.html" %}
+
+{% block contenido %}
+<h1>Géneros</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Agregar Género</button>
+</form>
+
+<ul>
+    {% for genero in generos %}
+        <li>{{ genero.nombre }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

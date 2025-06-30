@@ -1,0 +1,16 @@
+{% extends "posts/base.html" %}
+{% block contenido %}
+<h1>Directores</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Agregar Director</button>
+</form>
+
+<ul>
+    {% for director in directores %}
+        <li>{{ director.nombre }} ({{ director.nacionalidad }})</li>
+    {% endfor %}
+</ul>
+{% endblock %}

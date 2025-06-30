@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Películas</title>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'inicio' %}">Inicio</a> |
+        <a href="{% url 'peliculas' %}">Películas</a> |
+        <a href="{% url 'directores' %}">Directores</a> |
+        <a href="{% url 'generos' %}">Géneros</a>
+    </nav>
+    <hr>
+    {% block contenido %}
+    {% endblock %}
+</body>
+</html>
