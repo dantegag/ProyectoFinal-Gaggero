@@ -121,10 +121,14 @@
         <a href="{% url 'peliculas' %}">Películas</a>
         <a href="{% url 'directores' %}">Directores</a>
         <a href="{% url 'generos' %}">Géneros</a>
-        <a href="{% url 'login' %}">Login</a>
-        <a href="{% url 'register' %}">Registro</a>
-        <a href="{% url 'perfil' %}">Mi perfil</a>
-        <a href="{% url 'logout' %}">Logout</a>
+        {% if user.is_authenticated %}
+         Bienvenido {{ user.username }} |
+         <a href="{% url 'perfil' %}">Mi Perfil</a> |
+         <a href="{% url 'logout' %}">Salir</a>
+        {% else %}
+         <a href="{% url 'login' %}">Ingresar</a> |
+         <a href="{% url 'register' %}">Registrarse</a>
+        {% endif %}
     </nav>
     <hr>
     <div class="contenido">
