@@ -1,0 +1,17 @@
+{% extends "posts/base.html" %}
+
+{% block contenido %}
+<h2>Perfil de {{ user.username }}</h2>
+<ul>
+    <li>Nombre: {{ user.first_name }}</li>
+    <li>Apellido: {{ user.last_name }}</li>
+    <li>Email: {{ user.email }}</li>
+    <li>Biografía: {{ user.perfil.bio }}</li>
+    {% if user.perfil.avatar %}
+        <li>Avatar:<br><img src="{{ user.perfil.avatar.url }}" width="150"></li>
+    {% endif %}
+</ul>
+
+<a href="{% url 'editar_perfil' %}">Editar Perfil</a>
+{% endblock %}
+

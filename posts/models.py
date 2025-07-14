@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 
 class Director(models.Model):
@@ -23,3 +23,13 @@ class Pelicula(models.Model):
 
     def __str__(self):
         return self.titulo
+
+class Review(models.Model):
+    pelicula = models.ForeignKey(Pelicula, on_delete=models.CASCADE)
+    autor = models.ForeignKey(User, on_delete=models.CASCADE)
+    texto = models.TextField()
+    imagen = models.ImageField(upload_to='reviews/', blank=True, null=True)
+    fecha = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Review de {self.pelicula} por {self.autor}"

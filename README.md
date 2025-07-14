@@ -23,9 +23,11 @@ pip freeze > requirements.txt
 python manage.py makemigrations
 python manage.py migrate
 5. Cargar datos iniciales (películas, directores, géneros)
-Opción A: usando el script datos.py (más flexible)
 
-python manage.py shell < datos.py
+python manage.py shell 
+Una vez adentro, ejecutar:
+exec(open("datos.py", encoding="utf8").read())
+exit()
 
 
 * Orden sugerido para probar la aplicación

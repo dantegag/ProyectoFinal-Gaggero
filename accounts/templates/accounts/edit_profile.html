@@ -1,0 +1,19 @@
+{% extends "posts/base.html" %}
+
+{% block contenido %}
+<h2>Editar Perfil</h2>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h3>Datos de Usuario</h3>
+    {{ user_form.as_p }}
+
+    <h3>Datos de Perfil</h3>
+    {{ perfil_form.as_p }}
+
+    <button type="submit">Guardar Cambios</button>
+</form>
+
+<a href="{% url 'perfil' %}">Volver al perfil</a>
+{% endblock %}
+
