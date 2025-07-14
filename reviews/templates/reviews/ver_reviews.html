@@ -1,0 +1,26 @@
+{% extends "posts/base.html" %}
+{% block contenido %}
+<h2>Reseñas</h2>
+
+<form method="get">
+    <input type="text" name="q" placeholder="Buscar reseñas...">
+    <button type="submit">Buscar</button>
+</form>
+
+{% if reviews %}
+    <ul>
+    {% for review in reviews %}
+        <li>
+            <strong>{{ review.pelicula }}</strong> por {{ review.autor.username }}<br>
+            {{ review.texto }}<br>
+            {% if review.imagen %}
+                <img src="{{ review.imagen.url }}" width="200"><br>
+            {% endif %}
+            <small>{{ review.fecha }}</small>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay reseñas aún.</p>
+{% endif %}
+{% endblock %}

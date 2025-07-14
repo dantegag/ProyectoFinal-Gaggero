@@ -8,7 +8,9 @@
     <li>Email: {{ user.email }}</li>
     <li>Biografía: {{ user.perfil.bio }}</li>
     {% if user.perfil.avatar %}
-        <li>Avatar:<br><img src="{{ user.perfil.avatar.url }}" width="150"></li>
+        <li>Avatar:<br>
+            <img src="{{ user.perfil.avatar.url }}" width="150">
+        </li>
     {% endif %}
 </ul>
 

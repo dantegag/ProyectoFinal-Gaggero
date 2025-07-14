@@ -118,13 +118,18 @@
 <body>
     <nav>
         <a href="{% url 'inicio' %}">Inicio</a>
+        <a href="{% url 'ver_reviews' %}">Ver reseñas</a>
         <a href="{% url 'peliculas' %}">Películas</a>
         <a href="{% url 'directores' %}">Directores</a>
         <a href="{% url 'generos' %}">Géneros</a>
         {% if user.is_authenticated %}
-         Bienvenido {{ user.username }} |
-         <a href="{% url 'perfil' %}">Mi Perfil</a> |
-         <a href="{% url 'logout' %}">Salir</a>
+          <span>{{ user.username }}|</span> 
+          {% if user.perfil.avatar %}
+             <img src="{{ user.perfil.avatar.url }}" width="40" height="40" style="border-radius: 50%;">
+          {% endif %}
+          <a href="{% url 'crear_review' %}">Crear Reseña</a>
+          <a href="{% url 'perfil' %}">Mi Perfil</a> |
+          <a href="{% url 'logout' %}">Salir</a>
         {% else %}
          <a href="{% url 'login' %}">Ingresar</a> |
          <a href="{% url 'register' %}">Registrarse</a>
