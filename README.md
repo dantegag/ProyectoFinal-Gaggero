@@ -30,36 +30,77 @@ exec(open("datos.py", encoding="utf8").read())
 exit()
 
 
-* Orden sugerido para probar la aplicación
-Ingresar a /directores/ y agregar algunos directores.
+✨ FUNCIONALIDADES GENERALES
 
-Ir a /generos/ y crear algunos géneros.
+1. 🏠 Inicio
 
-Ir a /peliculas/ y agregar películas utilizando los directores y géneros creados.
+Accedé a la página de bienvenida.
 
-Finalmente, en la página principal (/), usar el buscador para buscar por título o por nombre del director.
+2. 🎥 Ver Películas
 
+Visualizá un listado de películas conocidas con información básica.
 
-¿Dónde están las funcionalidades?
+Se incluyen título, año, director y género.
 
-Página principal: /
-Formulario de búsqueda.
+3. 👨‍🎨 Directores
 
-Se puede buscar por nombre de película o por director.
+Agregá directores nuevos y visualizá los existentes.
 
-Muestra los resultados coincidentes.
+4.  Géneros
 
-Películas: /peliculas/
-Formulario para agregar nuevas películas.
+Visualizá todos los géneros de películas disponibles.
 
-Lista de todas las películas cargadas.
+🔑 AUTENTICACIÓN DE USUARIOS
 
-Directores: /directores/
-Formulario para agregar directores (nombre y nacionalidad).
+5. 🔐 Iniciar sesión
 
-Lista de directores disponibles.
+Ingresá con tu nombre de usuario y contraseña.
 
-Géneros: /generos/
-Formulario para agregar géneros (acción, drama, etc).
+6. 🔓 Registrarse
 
-Lista de géneros.
+Creá una cuenta completando usuario, email y contraseña.
+
+7. 👤 Perfil
+
+Visualizá tus datos personales, tu avatar y tu información biográfica.
+
+Desde aquí podés acceder a:
+
+✏️ Editar perfil
+
+🔑 Cambiar contraseña
+
+📝 RESEÑAS
+
+8. 🎓 Crear reseña (requiere sesión iniciada)
+
+Subí tu opinión sobre una película junto a una imagen opcional.
+
+9. 🔍 Ver reseñas
+
+Explorar todas las reseñas creadas por vos y otros usuarios.
+
+Incluye buscador por título de película.
+
+10. ✏️ Editar reseña (solo autor)
+
+Si sos el autor, podés modificar el contenido y la imagen.
+
+11. ❌ Eliminar reseña (solo autor)
+
+Si sos el autor, podés borrar tu reseña.
+
+👩‍🎓 OTRAS PÁGINAS
+
+12. 📄 Acerca de mí
+
+Conocé al desarrollador de esta página.
+
+Se incluye una foto e información personal.
+
+📅 PERSISTENCIA DE DATOS
+
+Toda la información (películas, usuarios, reseñas, etc.) queda guardada en la base de datos.
+
+Incluso si se detiene y vuelve a iniciar el servidor, los datos no se pierden.
+

@@ -19,9 +19,12 @@ def signup_view(request):
             user = form.save()
             login(request, user)
             return redirect('perfil')
+        else:
+            return render(request, 'accounts/signup.html', {'form': form})
     else:
         form = UserCreationForm()
     return render(request, 'accounts/signup.html', {'form': form})
+
 
 
 def login_view(request):

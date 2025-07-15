@@ -18,6 +18,11 @@
             {% endif %}
             <small>{{ review.fecha }}</small>
         </li>
+        {% if user == review.autor %}
+        <a href="{% url 'editar_review' review.pk %}">Editar</a> |
+        <a href="{% url 'eliminar_review' review.pk %}">Eliminar</a>
+        {% endif %}
+
     {% endfor %}
     </ul>
 {% else %}

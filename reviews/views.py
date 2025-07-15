@@ -3,6 +3,29 @@ from .forms import ReviewForm
 from .models import Review
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+from django.views.generic import UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.urls import reverse_lazy
+
+class EditarReviewView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Review
+    fields = ['titulo', 'contenido', 'imagen']
+    template_name = 'reviews/editar_review.html'
+    success_url = reverse_lazy('ver_reviews')
+
+    def test_func(self):
+        review = self.get_object()
+        return review.autor == self.request.user
+
+
+class EliminarReviewView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Review
+    template_name = 'reviews/eliminar_review.html'
+    success_url = reverse_lazy('ver_reviews')
+
+    def test_func(self):
+        review = self.get_object()
+        return review.autor == self.request.user
 
 @login_required
 def crear_review(request):
