@@ -1,0 +1,42 @@
+{% extends "posts/base.html" %}
+{% load static %}
+
+{% block contenido %}
+<style>
+  .about-container {
+    background-color: #1c1c1c;
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .about-container img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    margin-bottom: 20px;
+  }
+
+  .about-container p {
+    font-size: 1.2em;
+    line-height: 1.6;
+  }
+</style>
+
+<div class="about-container">
+  <img src="{% static 'img/dante.jpg' %}" alt="Foto de Dante">
+  <h2>Acerca de mí</h2>
+  <p>
+    ¡Hola! Soy Dante Gaggero. Me apasiona el cine, la tecnología y crear proyectos con Django.<br>
+    Este sitio fue creado como parte de un proyecto académico que combina programación y cine.<br>
+    ¡Gracias por visitarlo!
+  </p>
+</div>
+{% endblock %}
+
+

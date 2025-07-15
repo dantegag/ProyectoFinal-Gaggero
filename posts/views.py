@@ -59,3 +59,6 @@ def generos(request):
 
     lista = Genero.objects.all()
     return render(request, "posts/generos.html", {"form": form, "generos": lista})
+
+def about_view(request):
+    return render(request, 'posts/aboutme.html')
