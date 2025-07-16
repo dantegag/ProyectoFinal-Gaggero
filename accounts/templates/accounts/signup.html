@@ -1,11 +1,12 @@
 {% extends "posts/base.html" %}
 {% block contenido %}
- <h2>Registrarse</h2>
- <form method="post">
+<h2>Registrarse</h2>
+<form method="post">
     {% csrf_token %}
     {{ form.as_p }}
+
     {% if form.errors %}
-        <ul>
+        <ul class="errores">
             {% for field in form %}
                 {% for error in field.errors %}
                     <li>{{ field.label }}: {{ error }}</li>
@@ -16,7 +17,7 @@
             {% endfor %}
         </ul>
     {% endif %}
+
     <button type="submit">Registrarse</button>
 </form>
-
- {% endblock %}
+{% endblock %}

@@ -9,7 +9,7 @@ from django.urls import reverse_lazy
 
 class EditarReviewView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Review
-    fields = ['titulo', 'contenido', 'imagen']
+    fields = ['pelicula', 'texto', 'imagen']
     template_name = 'reviews/editar_review.html'
     success_url = reverse_lazy('ver_reviews')
 

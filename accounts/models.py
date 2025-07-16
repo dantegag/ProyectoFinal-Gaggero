@@ -20,7 +20,7 @@ def crear_o_actualizar_perfil(sender, instance, created, **kwargs):
     if created:
         Perfil.objects.create(user=instance)
     else:
-        # Si ya existe, intentamos guardar el perfil asociado
+        # Si ya existe, guarda el perfil asociado
         if hasattr(instance, 'perfil'):
             instance.perfil.save()
 

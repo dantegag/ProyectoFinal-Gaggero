@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django import forms
+from .forms import RegistroForm
 
 class EditProfileForm(forms.ModelForm):
     class Meta:
@@ -14,17 +15,16 @@ class EditProfileForm(forms.ModelForm):
 
 def signup_view(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = RegistroForm(request.POST)
         if form.is_valid():
-            user = form.save()
-            login(request, user)
-            return redirect('perfil')
-        else:
-            return render(request, 'accounts/signup.html', {'form': form})
+            user = form.save(commit=False)
+            user.set_password(form.cleaned_data['password1'])  
+            user.save()
+            login(request, user)  
+            return redirect('inicio')  
     else:
-        form = UserCreationForm()
+        form = RegistroForm()
     return render(request, 'accounts/signup.html', {'form': form})
-
 
 
 def login_view(request):
