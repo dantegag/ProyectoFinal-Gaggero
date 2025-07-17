@@ -1,9 +1,11 @@
-# Pagina
+# Proyeco final
 ProyectoFinal-Gaggero
 comision: 78110
 profesor: Alan Prestia
 tutora: Gabriela Edith Rossi
 alumno: Dante Gaggero
+
+link al video: https://youtu.be/VL210GSGfdw
 
 ✅ Instrucciones para correr el proyecto Django
 
@@ -112,7 +114,7 @@ Toda la información (películas, usuarios, reseñas, etc.) queda guardada en la
 
 Incluso si se detiene y vuelve a iniciar el servidor, los datos no se pierden.
 
-link al video: 
+
 
 
 
