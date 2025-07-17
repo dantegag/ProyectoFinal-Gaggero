@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django import forms
 from .forms import RegistroForm
+from .models import Perfil
 
 class EditProfileForm(forms.ModelForm):
     class Meta:
@@ -21,7 +22,7 @@ def signup_view(request):
             user.set_password(form.cleaned_data['password1'])  
             user.save()
             login(request, user)  
-            return redirect('inicio')  
+            return redirect('perfil')  
     else:
         form = RegistroForm()
     return render(request, 'accounts/signup.html', {'form': form})

@@ -6,7 +6,7 @@ from .models import Perfil
 @receiver(post_save, sender=User)
 def crear_o_actualizar_perfil(sender, instance, created, **kwargs):
     if created:
-        Perfil.objects.create(user=instance)
+        Perfil.objects.get_or_create(user=instance)
     else:
         if hasattr(instance, 'perfil'):
             instance.perfil.save()
